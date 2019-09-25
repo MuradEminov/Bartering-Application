@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css?family=Titillium+Web&display=swap');
+
+body{
+  background-image: url('../images/Login-aprat.jpg'); 
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: none;
+  scroll-behavior: unset;
+  
+}
+
+.wrapper{
+  display: grid; 
+  grid-template-columns: repeat(1, 1fr); 
+  grid-template-rows: 100px 700px; 
+  background: none; 
+  margin: 80px 150px;  
+  grid-row-gap: 1em;
+  justify-content: center; 
+  align-content: start; 
+} 
+
+
+
+.headerMessage{
+  background-color:  none; 
+  font-family: 'Times New Roman', Times, serif; 
+  font-size: capitalize; 
+  text-align: center; 
+  font-size: 2rem; 
+  font-family: 'Titillium Web', sans-serif;
+  color: azure;
+  text-transform: capitalize;
+
+    
+} 
+.headerMessage h3{
+  color: black; 
+  opacity: 1;
+  
+}
+
+.insideWrapper{
+    display: grid; 
+    grid-template-columns: 4fr 5fr; 
+    grid-column-gap: 1em;  
+}
+
+
+
+.wrapperLeft{
+  background-color:  #97a1aa; 
+  opacity: 0.8;
+}
+
+.wrapperRight{
+  background-color:  #97a1aa; 
+  opacity: 0.8;;
+}
