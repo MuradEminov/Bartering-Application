@@ -14,9 +14,11 @@ body{
   background-size: cover;
   background-color: none;
   scroll-behavior: unset;
-  overflow: hidden;
+  overflow: hidden; 
+  max-height: 70vh;
   
 }
+
 
 .wrapper{
   display: grid; 
@@ -137,20 +139,21 @@ input {
   width:100%;
   background-color: black; 
   color: white; 
-  height: 20%;
+  max-height: 25%;
   top:auto;
   
  
 } 
 
 .footer h5 {
- margin: 25px 0px 25px 10px;
+ margin: 0px;
 } 
 
 .footer img {
-  width: 0.7in;
-  height: 0.7in; 
+  width: 0.4in;
+  height: 0.4in; 
   position:relative; 
   display: inline; 
   padding: 10px;
-}
+} 
+

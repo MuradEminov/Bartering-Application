@@ -139,7 +139,7 @@ class Landing extends Component {
   render() {
 
     return (<Auxiliary>
-
+     
       <div className={classes.wrapper}>
         <div className={classes.headerMessage}><h3>Welcome to the online-bartering system</h3></div>
         <div className={classes.insideWrapper}>
@@ -161,7 +161,7 @@ class Landing extends Component {
                 <button type="submit" id="signIn">Sign in</button>
               </div>
             </form>
-            <img style={{ maxHeight: "30rem", left: "15px", position: "absolute" }} src={ManImage} />
+            <img style={{ maxHeight: "27rem", left: "15px", position: "absolute" }} src={ManImage} />
           </div>
           <div className={classes.wrapperRight}>
             <h2 style={{ textAlign: 'center', color: "red" }}>Sign Up</h2>
