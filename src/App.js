@@ -1,5 +1,5 @@
 import React from 'react';
-import Landing from '../../Appartment-app/src/Landing-page/Landing'; 
+import Landing from '../src/Landing/Landing'; 
 import './App.css';
 
 

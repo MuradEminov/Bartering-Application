@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css?family=Titillium+Web&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Arvo&display=swap');
+
+
+html{
+  min-height: 100%;
+}
+
+body{
+  background-image: url('../images/10730.jpg'); 
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: none;
+  scroll-behavior: unset;
+  
+}
+
+.wrapper{
+  display: grid; 
+  grid-template-columns: repeat(1, 1fr); 
+  grid-template-rows: 100px 700px; 
+  background: none; 
+  margin: 80px 150px;  
+  grid-row-gap: 1em;
+  justify-content: center; 
+  align-content: start;  
+  max-height: 450px;
+} 
+
+
+
+.headerMessage{
+  background-color:  rgb(147, 147, 199); 
+  font-family: 'Arvo', serif;
+  font-size: capitalize; 
+  text-align: center; 
+  font-size: 2rem; 
+  font-family: 'Titillium Web', sans-serif;
+  color: azure;
+  text-transform: uppercase; 
+  opacity: 0.8;
+  border-radius: 50px 50px 0px 0px;
+     
+} 
+.headerMessage h3{
+  color: rgb(4, 17, 5); 
+  opacity: 1;  
+  
+  
+}
+
+.insideWrapper{
+    display: grid; 
+    grid-template-columns: 5fr 5fr; 
+    grid-column-gap: 1em;  
+    max-height: 240px;
+}
+
+
+
+.wrapperLeft{ 
+  
+  background-color:  #97a1aa; 
+  opacity: 0.8; 
+  text-align: center;
+  border-radius: 0px 0px 0px 50px;
+}
+
+.wrapperLeft img{ 
+  margin-top: 5px;
+  display: inline; 
+  float: right;
+}
+
+.wrapperLeft_content{
+  display: inline-block;
+}
+
+.wrapperLeft_content button {
+ width: 120px; 
+ border-radius: 80px;
+}
+
+.wrapperLeft_content button:hover{
+  border: 2px white solid; 
+}
+
+
+.wrapperRight{
+  background-color:  #ecde1a; 
+  opacity: 0.8;
+  max-height: 350px;
+  text-align: center; 
+  border-radius: 0px 0px 50px 0px;
+  
+}
+
+.wrapperRight_content{
+  
+  display: inline-block;
+} 
+
+.wrapperRight_content button {
+  width: 120px; 
+  border-radius: 80px; 
+  background-color: #ecde1a; 
+  opacity: 0.9;
+ } 
+ .wrapperRight_content button:hover{
+   border: 2px white solid; 
+ }
+
+
+label {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  text-align: right;
+  width: 400px;
+  line-height: 26px;
+  margin-bottom: 10px;
+}
+
+input {
+  height: 20px;
+  flex: 0 0 200px;
+  margin-left: 10px;
+} 
+
+.footer{
+  position:absolute;
+  bottom:0;
+  width:100%;
+  background-color: black; 
+  color: white; 
+  
+ 
+} 
+
+.footer h5 {
+ margin: 25px 0px 25px 10px;
+} 
+
+.footer img {
+  width: 0.7in;
+  height: 0.7in; 
+  position:relative; 
+  display: inline; 
+  padding: 10px;
+}
