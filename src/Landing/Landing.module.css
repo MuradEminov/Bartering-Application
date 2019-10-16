@@ -14,6 +14,7 @@ body{
   background-size: cover;
   background-color: none;
   scroll-behavior: unset;
+  overflow: hidden;
   
 }
 
@@ -105,7 +106,7 @@ body{
 .wrapperRight_content button {
   width: 120px; 
   border-radius: 80px; 
-  background-color: #ecde1a; 
+  background-color: #b9b797; 
   opacity: 0.9;
  } 
  .wrapperRight_content button:hover{
@@ -132,9 +133,12 @@ input {
 .footer{
   position:absolute;
   bottom:0;
+  left:0;
   width:100%;
   background-color: black; 
   color: white; 
+  height: 20%;
+  top:auto;
   
  
 } 

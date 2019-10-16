@@ -196,15 +196,16 @@ class Landing extends Component {
 
       </div>
 
-
-      <footer className={classes.footer}>
+      <div className={classes.footer}>
+      
         <h5>Developed by Murad Eminov, 2019</h5>
         <img src={ReactImage} />
         <img src={FirebaseImage} />
         <img src={ChatkitImage} />
         <img src={Axios} />
         <img src={CssGrid} />
-      </footer>
+     
+      </div>
 
     </Auxiliary>);
   }
