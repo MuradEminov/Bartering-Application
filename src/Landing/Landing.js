@@ -5,21 +5,23 @@ import SignIn from '../images/formicons/SignIn.png';
 import { throwStatement } from '@babel/types';
 import ReactImage from '../images/icons/react.png'
 import ChatkitImage from '../images/icons/chatkit.png';
-import Axios from '../images/icons/axios.png';
+import AxiosImage from '../images/icons/axios.png';
 import CssGrid from '../images/icons/css-grid.png';
 import FirebaseImage from '../images/icons/firebase.png';
 import ManImage from '../images/formicons/man.png';
-import Fire from './Firebase/Fire';
-import fire from './Firebase/Fire';
+import fire from './Firebase/Fire'; 
+import WatchImage from '../images/formicons/watches.jpg'; 
+import Cars from '../images/formicons/car.jpg'; 
+import Smartphones from '../images/formicons/smartphones.jpg'
 
 
 
 const initialState = {
 
-  user: {},  
+  user: {},
   nameLogin: "",
-  passwordLogin: "", 
-  nameLoginErr: "", 
+  passwordLogin: "",
+  nameLoginErr: "",
   passwordLoginErr: "",
   name: "",
   email: "",
@@ -78,17 +80,17 @@ class Landing extends Component {
     let nameLoginErr = "";
     let passwordLoginErr = "";
 
-    if (!this.state.nameLogin){
-      nameLoginErr = "Username field is missing."; 
-    } 
-    if (!this.state.password){
-      passwordLoginErr = "Password field is missing"; 
-    } 
-     if (nameLoginErr || passwordLoginErr){
-       this.setState({nameLoginErr, passwordLoginErr}); 
-     }
+    if (!this.state.nameLogin) {
+      nameLoginErr = "Username field is missing.";
+    }
+    if (!this.state.password) {
+      passwordLoginErr = "Password field is missing";
+    }
+    if (nameLoginErr || passwordLoginErr) {
+      this.setState({ nameLoginErr, passwordLoginErr });
+    }
 
-    
+
 
   }
 
@@ -109,28 +111,28 @@ class Landing extends Component {
   signInHandler = (event) => {
     const isValid = this.validateSignIn();
     if (isValid) {
-      console.log(this.state); 
-        // this.setState(initialState);
+      console.log(this.state);
+      // this.setState(initialState);
     }
 
     event.preventDefault();
     console.log(this.state);
-  } 
+  }
 
-   authListener =() =>{
-     fire.auth().onAuthStateChanged((user) =>{
-       if(user){
-         this.setState({user}); 
-            } else {
-            this.setState({user: null}); 
-                }
-     });
-   }
+  authListener = () => {
+    fire.auth().onAuthStateChanged((user) => {
+      if (user) {
+        this.setState({ user });
+      } else {
+        this.setState({ user: null });
+      }
+    });
+  }
 
 
-   componentDidMount(){
-     
-   }
+  componentDidMount() {
+
+  }
 
 
 
@@ -148,20 +150,19 @@ class Landing extends Component {
               <h2 style={{ textAlign: 'center', color: "blue", display: "inline" }}>Sign In</h2> <img src={SignIn} />
               <h6 style={{ textAlign: 'center' }}>Already registered ? Then enter username and password below: </h6>
               <div className={classes.wrapperLeft_content}>
-
                 <label>
                   Username <input type="text" name="nameLogin" placeholder="username" onChange={this.handleChange} />
-                  
-                </label> 
+
+                </label>
                 <div style={{ color: "red" }}>{this.state.nameLoginErr}</div>
                 <label>
-                  Password <input type="password" name="passwordLogin" placeholder="password" onChange={this.handleChange} /> 
-                    </label>
-                    <div style={{ color: "red" }}>{this.state.passwordLoginErr}</div>
+                  Password <input type="password" name="passwordLogin" placeholder="password" onChange={this.handleChange} />
+                </label>
+                <div style={{ color: "red" }}>{this.state.passwordLoginErr}</div>
                 <button type="submit" id="signIn">Sign in</button>
               </div>
             </form>
-            <img style={{ maxHeight: "27rem", left: "15px", position: "absolute" }} src={ManImage} />
+            
           </div>
           <div className={classes.wrapperRight}>
             <h2 style={{ textAlign: 'center', color: "red" }}>Sign Up</h2>
@@ -192,20 +193,38 @@ class Landing extends Component {
 
 
           </div>
+        </div> 
+        <div className={classes.advertImages} >
+             
+             
+            <div> 
+            <img src={ManImage} /> 
+            </div>
+            <div> 
+            <img src={WatchImage} />
+            </div>
+            <div> 
+            <img src={Cars} />
+            </div>
+            <div> 
+            <img src={Smartphones} /> 
+            </div>
+
         </div>
 
       </div>
 
       <div className={classes.footer}>
-      
+
         <h5>Developed by Murad Eminov, 2019</h5>
         <img src={ReactImage} />
         <img src={FirebaseImage} />
         <img src={ChatkitImage} />
-        <img src={Axios} />
+        <img src={AxiosImage} />
         <img src={CssGrid} />
-     
-      </div>
+
+      </div> 
+      
 
     </Auxiliary>);
   }
