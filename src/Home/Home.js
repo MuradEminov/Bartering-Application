@@ -1,24 +1,24 @@
 import React, { Component } from 'react';
 import Auxiliary from '../hoc/Auxiliary';
+import fire from '../Firebase/Fire'; 
 
 
+class Home extends Component {
 
-
-state = {
-
-};
-
-
-class Landing extends Component {
-
-    render() {
+   
+  
+logout(){
+  fire.auth().signOut(); 
+}  
+  
+  render() {
 
     return (<Auxiliary>
         <div>HOME</div>
-      
+        <button onClick={this.logout}>Log Out</button>
 
     </Auxiliary>);
-  }
+  };
 
 }
-export default Landing;
+export default Home;

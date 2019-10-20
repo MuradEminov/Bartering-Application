@@ -1,49 +1,54 @@
 import React, { Component } from 'react';
-import classes from '../Landing/Landing.module.css';
+import classes from './Login.module.css';
 import Auxiliary from '../hoc/Auxiliary';
 import SignIn from '../images/formicons/SignIn.png';
-import { throwStatement } from '@babel/types';
 import ReactImage from '../images/icons/react.png'
 import ChatkitImage from '../images/icons/chatkit.png';
 import AxiosImage from '../images/icons/axios.png';
 import CssGrid from '../images/icons/css-grid.png';
 import FirebaseImage from '../images/icons/firebase.png';
 import ManImage from '../images/formicons/man.png';
-import fire from './Firebase/Fire'; 
+import fire from '../Firebase/Fire'; 
 import WatchImage from '../images/formicons/watches.jpg'; 
 import Cars from '../images/formicons/car.jpg'; 
-import Smartphones from '../images/formicons/smartphones.jpg'
+import Smartphones from '../images/formicons/smartphones.jpg';
 
 
+class Login extends Component {
 
-const initialState = {
+   constructor (props){
+     super(props); 
+     this.login = this.login.bind(this);
+     this.handleChange = this.handleChange.bind(this);
+      this.state = {
+       email : "", 
+       password: ""
+     }};
+        //     // emailLogin: "murademinov88@gmail.com",
+  //     // passwordLogin: "komp20",
+  //     // emailLoginErr: "",
+  //     // passwordLoginErr: "",
+  //     // name: "",
+  //     // email: "",
+  //     // password: "",
+  //     // repeatPassword: "",
+  //     // nameErr: "",
+  //     // emailErr: "",
+  //     // passwordErr: "",
+  //     email: "",
+  //     password: ""
+      
+  //   };
+  //  }; 
 
-  user: {},
-  nameLogin: "",
-  passwordLogin: "",
-  nameLoginErr: "",
-  passwordLoginErr: "",
-  name: "",
-  email: "",
-  password: "",
-  repeatPassword: "",
-  nameErr: "",
-  emailErr: "",
-  passwordErr: "",
-  error: false
-};
+   
 
 
-class Landing extends Component {
-
-  state = initialState;
-
-
-  handleChange = (event) => {
+  handleChange = (e) => {
     this.setState({
-      [event.target.name]: event.target.value
-    });
-  }
+      [e.target.name]: e.target.value
+    }); 
+    }
 
 
   validateSignUp = () => {
@@ -56,7 +61,7 @@ class Landing extends Component {
     }
 
     if (!this.state.email.includes('@')) {
-      emailErr = 'Invalid email';
+      emailErr = 'Invalid e-mail';
     }
 
     if (!this.state.password) {
@@ -77,68 +82,52 @@ class Landing extends Component {
   }
 
   validateSignIn = () => {
-    let nameLoginErr = "";
+    let emailLoginErr = "";
     let passwordLoginErr = "";
 
-    if (!this.state.nameLogin) {
-      nameLoginErr = "Username field is missing.";
+    if (!this.state.emailLogin) {
+      emailLoginErr = "Email field is missing.";
     }
-    if (!this.state.password) {
+    if (!this.state.emailLogin.includes('@')) {
+      emailLoginErr = "Invalid e-mail";
+    }
+    if (!this.state.passwordLogin) {
       passwordLoginErr = "Password field is missing";
     }
-    if (nameLoginErr || passwordLoginErr) {
-      this.setState({ nameLoginErr, passwordLoginErr });
+    if (emailLoginErr || passwordLoginErr) {
+      this.setState({ emailLoginErr, passwordLoginErr });
     }
 
-
-
   }
-
 
 
   signUpHandler = (event) => {
     const isValid = this.validateSignUp();
     if (isValid) {
-      console.log(this.state);
-      // this.setState(initialState);
-    }
+      this.setState({signUpFormValidated: true}); 
 
-    event.preventDefault();
-    console.log(this.state);
+    }
+    
   }
 
 
-  signInHandler = (event) => {
-    const isValid = this.validateSignIn();
-    if (isValid) {
-      console.log(this.state);
-      // this.setState(initialState);
+  signInHandler = (e) => {
+    
+    const isValid = this.validateSignIn(); 
+     if (isValid){ 
+            this.login();  
+      
     }
-
-    event.preventDefault();
-    console.log(this.state);
-  }
-
-  authListener = () => {
-    fire.auth().onAuthStateChanged((user) => {
-      if (user) {
-        this.setState({ user });
-      } else {
-        this.setState({ user: null });
       }
-    });
-  }
-
-
-  componentDidMount() {
-
-  }
-
-
-
-
-
-  render() {
+   
+      login(e) {
+        e.preventDefault();
+        fire.auth().signInWithEmailAndPassword(this.state.email, this.state.password).then((u)=>{
+        }).catch((error) => {
+            console.log(error);
+          });
+      }
+render() {
 
     return (<Auxiliary>
      
@@ -146,20 +135,20 @@ class Landing extends Component {
         <div className={classes.headerMessage}><h3>Welcome to the online-bartering system</h3></div>
         <div className={classes.insideWrapper}>
           <div className={classes.wrapperLeft}>
-            <form onSubmit={this.signInHandler}>
+            <form >
               <h2 style={{ textAlign: 'center', color: "blue", display: "inline" }}>Sign In</h2> <img src={SignIn} />
               <h6 style={{ textAlign: 'center' }}>Already registered ? Then enter username and password below: </h6>
               <div className={classes.wrapperLeft_content}>
                 <label>
-                  Username <input type="text" name="nameLogin" placeholder="username" onChange={this.handleChange} />
+                  Email<input type="text" name="email" placeholder="email" onChange={this.handleChange} />
 
                 </label>
-                <div style={{ color: "red" }}>{this.state.nameLoginErr}</div>
+                <div style={{ color: "red" }}>{this.state.emailLoginErr}</div>
                 <label>
-                  Password <input type="password" name="passwordLogin" placeholder="password" onChange={this.handleChange} />
+                  Password <input type="password" name="password" placeholder="password" onChange={this.handleChange} />
                 </label>
                 <div style={{ color: "red" }}>{this.state.passwordLoginErr}</div>
-                <button type="submit" id="signIn">Sign in</button>
+                <button type="submit" onClick={this.login} id="signIn">Sign in</button>
               </div>
             </form>
             
@@ -169,7 +158,7 @@ class Landing extends Component {
             <h6 style={{ textAlign: 'center' }}>Not registered yet ? Then, please provide your user information below: </h6>
 
             <div className={classes.wrapperRight_content}>
-              <form onSubmit={this.signUpHandler}>
+              <form >
                 <label>
                   Username* <input type="text" name="name" placeholder="username" value={this.state.name} onChange={this.handleChange} />
                 </label>
@@ -188,15 +177,11 @@ class Landing extends Component {
                 <div style={{ color: "red" }}>{this.state.emailErr}</div>
                 <button type="submit" id="signUp">Sign Up</button>
               </form>
-
             </div>
-
-
           </div>
         </div> 
         <div className={classes.advertImages} >
-             
-             
+          
             <div> 
             <img src={ManImage} /> 
             </div>
@@ -224,10 +209,11 @@ class Landing extends Component {
         <img src={CssGrid} />
 
       </div> 
+
       
 
     </Auxiliary>);
   }
 
 }
-export default Landing;
+export default Login;
