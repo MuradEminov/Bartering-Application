@@ -22,7 +22,13 @@ class Login extends Component {
      this.handleChange = this.handleChange.bind(this);
       this.state = {
        email : "", 
-       password: ""
+       password: "", 
+       
+       emailLoginErr : "", 
+       passwordLoginErr: ""
+
+
+
      }};
         //     // emailLogin: "murademinov88@gmail.com",
   //     // passwordLogin: "komp20",
@@ -83,20 +89,23 @@ class Login extends Component {
 
   validateSignIn = () => {
     let emailLoginErr = "";
-    let passwordLoginErr = "";
+    let passwordLoginErr = ""; 
+     
 
-    if (!this.state.emailLogin) {
+    if (!this.state.email) {
       emailLoginErr = "Email field is missing.";
     }
-    if (!this.state.emailLogin.includes('@')) {
+    if (!this.state.email.includes('@')) {
       emailLoginErr = "Invalid e-mail";
     }
-    if (!this.state.passwordLogin) {
+    if (!this.state.password) {
       passwordLoginErr = "Password field is missing";
     }
     if (emailLoginErr || passwordLoginErr) {
-      this.setState({ emailLoginErr, passwordLoginErr });
-    }
+      this.setState({ emailLoginErr, passwordLoginErr }); 
+      
+      
+    } 
 
   }
 
@@ -111,22 +120,18 @@ class Login extends Component {
   }
 
 
-  signInHandler = (e) => {
-    
-    const isValid = this.validateSignIn(); 
-     if (isValid){ 
-            this.login();  
-      
-    }
-      }
+
    
       login(e) {
-        e.preventDefault();
+        e.preventDefault(); 
+        this.validateSignIn();  
+                
         fire.auth().signInWithEmailAndPassword(this.state.email, this.state.password).then((u)=>{
         }).catch((error) => {
             console.log(error);
-          });
-      }
+          }); 
+
+             }
 render() {
 
     return (<Auxiliary>
