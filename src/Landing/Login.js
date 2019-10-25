@@ -196,8 +196,7 @@ render() {
         </div> 
         <div className={classes.advertImages} >
           
-             
-            <div> 
+             <div> 
             <img src={ManImage} /> 
             </div>
             <div> 
