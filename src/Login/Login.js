@@ -12,6 +12,7 @@ import fire from '../Firebase/Fire';
 import WatchImage from '../images/formicons/watches.jpg';
 import Cars from '../images/formicons/car.jpg';
 import Smartphones from '../images/formicons/smartphones.jpg';
+import Footer from '../Footer/Footer'; 
 
 
 class Login extends Component {
@@ -25,6 +26,7 @@ class Login extends Component {
       //form sign in data
       email: "",
       password: "",
+      
       emailLoginErr: "",
       passwordLoginErr: "", 
       //form sign up data: 
@@ -131,10 +133,6 @@ class Login extends Component {
 }
 
 
-
-
-
-
   render() {
 
     return (<Auxiliary>
@@ -207,19 +205,7 @@ class Login extends Component {
 
       </div>
 
-      <div className={classes.footer}>
-
-        <h5>Developed by Murad Eminov, 2019</h5>
-        <img src={ReactImage} />
-        <img src={FirebaseImage} />
-        <img src={ChatkitImage} />
-        <img src={AxiosImage} />
-        <img src={CssGrid} />
-
-      </div>
-
-
-
+      <Footer />
     </Auxiliary>);
   }
 

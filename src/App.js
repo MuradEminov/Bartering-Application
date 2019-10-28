@@ -1,8 +1,12 @@
-import React, { Component } from 'react';
-import './App.css';
+import React, { Component } from 'react'; 
 import fire from '../src/Firebase/Fire';
 import Home from '../src/Home/Home';
 import Login from '../src/Login/Login';
+ 
+
+
+
+
 
 class App extends Component {
   constructor() {
@@ -29,9 +33,17 @@ class App extends Component {
       }
     });
   }
-  render() {
+  render() {  
+
+   
+    var divStyleHome = {
+      backgroundImage: 'url(' + '../src/images/background-home.jpg' + ')'
+    }
+
+
+
     return <div> 
-    {this.state.user ? <Home/> : <Login /> }  
+    {this.state.user ? <Home/> : <Login/> }  
     {console.log(this.state.user)}
       </div>
 };
