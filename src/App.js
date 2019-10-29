@@ -1,8 +1,8 @@
-import React, { Component } from 'react'; 
+import React, { Component } from 'react';
 import fire from '../src/Firebase/Fire';
 import Home from '../src/Home/Home';
 import Login from '../src/Login/Login';
- 
+
 
 
 
@@ -23,30 +23,30 @@ class App extends Component {
 
   authListener() {
     fire.auth().onAuthStateChanged((user) => {
-      
+
       if (user) {
         this.setState({ user });
-        
+
       } else {
         this.setState({ user: null });
-        
+
       }
     });
   }
-  render() {  
+  render() {
 
-   
+
     var divStyleHome = {
       backgroundImage: 'url(' + '../src/images/background-home.jpg' + ')'
     }
 
 
 
-    return <div> 
-    {this.state.user ? <Home/> : <Login/> }  
-    {console.log(this.state.user)}
-      </div>
-};
+    return <div>
+      {this.state.user ? <Home /> : <Login />}
+      {console.log(this.state.user)}
+    </div>
+  };
 }
 
- export default App;
+export default App;

@@ -32,12 +32,9 @@ body{
   align-content: start;   
   position: relative;
   max-height: 100vh;
-   
-   
+  
    
 } 
-
-
 
 .headerMessage{
   background-color:  rgb(147, 147, 199); 
@@ -48,15 +45,20 @@ body{
   font-family: 'Titillium Web', sans-serif;
   color: azure;
   text-transform: uppercase; 
-  opacity: 0.8;
-  border-radius: 50px 50px 0px 0px;
+   border-radius: 50px 50px 0px 0px;
      
 } 
-.headerMessage h3{
-  color: rgb(4, 17, 5); 
-  opacity: 1;  
-  
-  
+.headerMessage h5{
+  color: white; 
+  opacity: 1; 
+  padding: 2px;
+  margin:0; 
+  }
+
+.headerMessage img{
+  padding-top: 20px;;
+  margin: 0; 
+  padding: 0;
 }
 
 .insideWrapper{

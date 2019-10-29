@@ -12,7 +12,8 @@ import fire from '../Firebase/Fire';
 import WatchImage from '../images/formicons/watches.jpg';
 import Cars from '../images/formicons/car.jpg';
 import Smartphones from '../images/formicons/smartphones.jpg';
-import Footer from '../Footer/Footer'; 
+import Footer from '../Footer/Footer';
+import Barterer from '../images/Barterer Icon/Barterer.png';
 
 
 class Login extends Component {
@@ -26,18 +27,18 @@ class Login extends Component {
       //form sign in data
       email: "",
       password: "",
-      
+
       emailLoginErr: "",
-      passwordLoginErr: "", 
+      passwordLoginErr: "",
       //form sign up data: 
-      signUpEmail: "", 
-      signUpEmailRepeat: "", 
-      signUpPassword: "", 
+      signUpEmail: "",
+      signUpEmailRepeat: "",
+      signUpPassword: "",
       signUpPasswordRepeat: "",
 
-      signUpEmailError:"", 
+      signUpEmailError: "",
       signUpEmailRepeatError: "",
-      signUpPasswordError: "", 
+      signUpPasswordError: "",
       signUpPasswordRepeatError: ""
 
     }
@@ -71,7 +72,7 @@ class Login extends Component {
 
   }
 
-  
+
 
   login(e) {
     e.preventDefault();
@@ -80,57 +81,59 @@ class Login extends Component {
     fire.auth().signInWithEmailAndPassword(this.state.email, this.state.password).then((u) => {
     }).catch((error) => {
       console.log(error);
+      let errorMessage = error.message;
+      this.setState({ passwordLoginErr: errorMessage});
     });
 
   }
 
- signup(e){
-  e.preventDefault(e); 
-  this.validateSignUp(); 
-  if (this.validateSignUp){
-     fire.auth().createUserWithEmailAndPassword(this.state.signUpEmail, this.state.signUpPassword)
-     .catch((error) => {
-       console.log(error.message);
-       let errorMessage = error.message; 
-      this.setState({signUpPasswordError: errorMessage , signUpPasswordRepeatError: errorMessage }); 
-     })
+  signup(e) {
+    e.preventDefault(e);
+    this.validateSignUp();
+    if (this.validateSignUp) {
+      fire.auth().createUserWithEmailAndPassword(this.state.signUpEmail, this.state.signUpPassword)
+        .catch((error) => {
+          console.log(error.message);
+          let errorMessage = error.message;
+          this.setState({ signUpPasswordError: errorMessage, signUpPasswordRepeatError: errorMessage });
+        })
+    }
+
   }
- 
- } 
 
   validateSignUp = () => {
-  let signUpEmailError= "";
-  let signUpEmailRepeatError = "";
-  let signUpPasswordError = ""; 
-  let signUpPasswordRepeatError = ""; 
+    let signUpEmailError = "";
+    let signUpEmailRepeatError = "";
+    let signUpPasswordError = "";
+    let signUpPasswordRepeatError = "";
 
-  if (!this.state.signUpEmail) {
-    signUpEmailError = "E-mail is missing";
-  }
+    if (!this.state.signUpEmail) {
+      signUpEmailError = "E-mail is missing";
+    }
 
-  if (!this.state.signUpEmail.includes('@')) {
-    signUpEmailError = 'Invalid e-mail';
-  } 
-  if (!this.state.signUpEmailRepeat){
-    signUpEmailRepeatError = 'repeat E-mail is missing'; 
-  }
-  if (!(this.state.signUpEmail === this.state.signUpEmailRepeat)) {
-    signUpEmailRepeatError = "E-mails do not match";
-  }
-  if (!this.state.signUpPassword) {
-    signUpPasswordError = "Password field is missing"
-  }
-  if (!(this.state.signUpPassword === this.state.signUpPasswordRepeat)) {
-    signUpPasswordRepeatError = "Passwords do not match";
-  }
-   if (signUpEmailError|| signUpEmailRepeatError || signUpPasswordError || signUpPasswordRepeatError) {
+    if (!this.state.signUpEmail.includes('@')) {
+      signUpEmailError = 'Invalid e-mail';
+    }
+    if (!this.state.signUpEmailRepeat) {
+      signUpEmailRepeatError = 'repeat E-mail is missing';
+    }
+    if (!(this.state.signUpEmail === this.state.signUpEmailRepeat)) {
+      signUpEmailRepeatError = "E-mails do not match";
+    }
+    if (!this.state.signUpPassword) {
+      signUpPasswordError = "Password field is missing"
+    }
+    if (!(this.state.signUpPassword === this.state.signUpPasswordRepeat)) {
+      signUpPasswordRepeatError = "Passwords do not match";
+    }
+    if (signUpEmailError || signUpEmailRepeatError || signUpPasswordError || signUpPasswordRepeatError) {
       this.setState({ signUpEmailError, signUpEmailRepeatError, signUpPasswordError, signUpPasswordRepeatError });
       return false;
-     } else {
-     return true;
-   }
+    } else {
+      return true;
+    }
 
-}
+  }
 
 
   render() {
@@ -138,7 +141,9 @@ class Login extends Component {
     return (<Auxiliary>
 
       <div className={classes.wrapper}>
-        <div className={classes.headerMessage}><h3>Welcome to the online-bartering system</h3></div>
+        <div className={classes.headerMessage}><img style={{ maxHeight: '53px' }} src={Barterer} />
+          <h5>ONLINE BARTERING SYSTEM</h5>
+        </div>
         <div className={classes.insideWrapper}>
           <div className={classes.wrapperLeft}>
             <form >

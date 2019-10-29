@@ -12,7 +12,7 @@ const footer = (props) => (
 
     <Auxiliary>
         <div className={classes.footer}>
-            <h5>Developed by Murad Eminov, 2019</h5>
+            <h5>Front-end developer: Murad Eminov, Back-end developer: Elbrus Bayramov, 2019</h5>
             <img src={ReactImage} />
             <img src={FirebaseImage} />
             <img src={ChatkitImage} />
