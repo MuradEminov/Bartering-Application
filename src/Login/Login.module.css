@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Titillium+Web&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Arvo&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Courgette&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Amiri&display=swap');
 
 
 html{
@@ -78,12 +80,42 @@ body{
   opacity: 0.8; 
   text-align: center;
   border-radius: 0px 0px 0px 50px;
+} 
+
+.wrapperLeft h2, .wrapperRight h2 {
+  font-family: 'Courgette', cursive;
+  font-size: 2rem;
+  padding-bottom: 10px;
+}
+
+.wrapperLeft h6, .wrapperRight h6 {
+  font-family: 'Courgette', cursive;
+  font-size: 1rem;
+  padding-bottom: 10px;
+} 
+
+.wrapperLeft label, .wrapperRight label {
+  font-family: 'Amiri', serif;
+  font-size: 1rem;
 }
 
 .wrapperLeft img{ 
   margin-top: 5px;
   display: inline; 
   float: right;
+} 
+
+.wrapperLeft input, .wrapperRight input {
+  border-radius: 60px;
+  border: 2px solid rgb(201, 201, 219);
+  font-size: 1rem;
+  font-family: 'Amiri', serif; 
+  max-width: 240px; 
+  color: rgb(14, 15, 37);
+} 
+
+.wrapperLeft input:hover, .wrapperRight input:hover{
+  border: 4px solid rgb(125, 125, 218);
 }
 
 .wrapperLeft_content{
@@ -107,7 +139,8 @@ body{
   text-align: center; 
   border-radius: 0px 0px 50px 0px;
   
-}
+} 
+
 
 .wrapperRight_content{
   
@@ -145,6 +178,7 @@ input {
   display: grid; 
   grid-template-columns: 1fr 5fr 5fr 5fr;;
   max-height: 150px;
+  
 } 
 .advertImages img {
   height: 250px;

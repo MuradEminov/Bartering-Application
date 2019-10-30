@@ -12,12 +12,10 @@ overflow: scroll;
 overflow-x: hidden;
 scroll-behavior: smooth; 
 padding-right: 70px;
+grid-auto-rows: minmax(100px, auto);
+justify-content: center;
 
 }  
-
-
-
-
 
  @media(max-width:865px){
     .BarterOffers__container{

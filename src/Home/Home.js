@@ -4,7 +4,9 @@ import fire from '../Firebase/Fire';
 import Toolbar from '../Toolbar/Toolbar';
 import classes from '../Home/Home.module.css';
 import BarterOffers from '../BarterOffers/BarterOffers';
+import MyItems from '../MyItems/MyItems';
 import Hero from '../Hero/Hero';
+import { Route, NavLink } from 'react-router-dom';
 
 class Home extends Component {
 
@@ -15,7 +17,7 @@ class Home extends Component {
     showMyWishlist: false
   };
 
-
+  
   logout() {
     fire.auth().signOut();
   }
@@ -30,17 +32,21 @@ class Home extends Component {
           <div className={classes.left__sidebar}>
             <div className={classes.left__sidebar__content}>
               <ul>
-                <li>BARTER OFFERS</li>
-                <li>MY ITEMS</li>
+                <li><NavLink exact to="/">BARTER OFFERS</NavLink></li>
+                <li><NavLink exact to="/my-items">MY ITEMS</NavLink></li>
                 <li>MY DEALS</li>
                 <li>MY WISHLIST</li>
               </ul>
             </div>
           </div>
           <div className={classes.Content}>
-            <BarterOffers />
+            
+            <Route path="/" exact component={BarterOffers} />
+            <Route path="/my-items" exact component={MyItems} />
+            {console.log(this.props)}
           </div>
         </main>
+
       </Auxiliary>
     );
   };

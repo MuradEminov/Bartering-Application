@@ -5,16 +5,7 @@
  
 } 
 
-.barterItem button{
-   
-   width: 100%;
-   max-height: 24px; 
-   background-color: chartreuse;
-   border-radius: 25px;
-   cursor: pointer;
-   bottom: 0;
-   margin-top: 40px;
-}
+
 
 .barterItem button:hover{
     background-color: rgb(227, 240, 113);
@@ -29,11 +20,12 @@
 
 .itemdescription{
     background-color: rgb(229, 230, 231);
-    height: 120px;
+    grid-auto-rows: minmax(120px, auto);
     bottom: 0; 
     left:0;
     display: grid;  
     grid-template-rows: 1fr 1fr;
+    justify-items: start;
     
     
 }
@@ -42,6 +34,26 @@
     padding: 0;
 } 
 
+.description__text p{
+    font-size: 17x; 
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
 .description__button{
-    align-self: start;
+   
+     justify-self: center;
+     align-self: center;
+     margin: 0; 
+     padding: 0;
+}
+
+.description__button button{
+   width: 240px;
+   max-height: 24px; 
+   background-color: chartreuse;
+   border-radius: 25px;
+   cursor: pointer;
+   bottom: 0;
+   margin-top: 40px;
 }

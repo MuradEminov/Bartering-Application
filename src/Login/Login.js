@@ -82,7 +82,7 @@ class Login extends Component {
     }).catch((error) => {
       console.log(error);
       let errorMessage = error.message;
-      this.setState({ passwordLoginErr: errorMessage});
+      this.setState({ passwordLoginErr: errorMessage });
     });
 
   }

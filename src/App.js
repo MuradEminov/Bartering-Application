@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import fire from '../src/Firebase/Fire';
 import Home from '../src/Home/Home';
 import Login from '../src/Login/Login';
+import {BrowserRouter } from 'react-router-dom'; 
 
 
 
@@ -42,10 +43,12 @@ class App extends Component {
 
 
 
-    return <div>
+    return (<BrowserRouter>
+    <div>
       {this.state.user ? <Home /> : <Login />}
       {console.log(this.state.user)}
     </div>
+    </BrowserRouter>);
   };
 }
 
