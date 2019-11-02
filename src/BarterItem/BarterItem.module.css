@@ -1,7 +1,7 @@
 .barterItem{
  text-align: center;
  align-items: center;
- border: 2px solid rgb(189, 185, 183);
+ border: 2px solid rgb(165, 191, 221);
  
 } 
 
@@ -20,12 +20,13 @@
 
 .itemdescription{
     background-color: rgb(229, 230, 231);
-    grid-auto-rows: minmax(120px, auto);
-    bottom: 0; 
+    grid-auto-rows: minmax(100px, auto);
+    top: 0; 
     left:0;
     display: grid;  
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: 140px 140px;
     justify-items: start;
+    min-height: 129px;
     
     
 }
@@ -37,6 +38,7 @@
 .description__text p{
     font-size: 17x; 
     font-family: Arial, Helvetica, sans-serif;
+    margin-bottom: 5px;
 }
 
 
@@ -55,5 +57,5 @@
    border-radius: 25px;
    cursor: pointer;
    bottom: 0;
-   margin-top: 40px;
+   margin: 0;
 }

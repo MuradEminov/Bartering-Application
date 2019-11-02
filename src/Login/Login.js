@@ -192,7 +192,6 @@ class Login extends Component {
           </div>
         </div>
         <div className={classes.advertImages} >
-
           <div>
             <img src={ManImage} />
           </div>

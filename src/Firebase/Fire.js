@@ -1,4 +1,5 @@
-import firebase from 'firebase'; 
+import firebase from 'firebase';   
+import 'firebase/storage'; 
 
 const config = {
     
@@ -14,6 +15,7 @@ const config = {
 
 };  
 
-const fire = firebase.initializeApp(config); 
+const fire = firebase.initializeApp(config);  
+const storage = firebase.storage();
 
-export default fire; 
+export {storage, fire as default}; 

@@ -25,20 +25,20 @@ class BarterOffers extends Component {
 
                 //The array of objects with pseudo-data. This resembles the JSON which will be received from the back-end.
 
-                const Data = [{ Image: Image1, Description: "Swatch watch model 91", Bartering_Condition: "Barter with a similar item", Username: "Margarito Hux" },
-                { Image: Image2, Description: "SAMSUNG smart watch ", Bartering_Condition: "Barter with a similar item with extra payment", Username: "Reynalda Cail" },
-                { Image: Image3, Description: "Smartphone IPhone 5 ", Bartering_Condition: "Barter with SAMSUNG smartwatch",  Username: "Joette Gertz" },
-                { Image: Image4, Description: "Laptop ASUS S510UF ", Bartering_Condition: "Barter with a watch Rolex",  Username: "Alex Vittetoe" },
-                { Image: Image5, Description: "Stool from IKEA ", Bartering_Condition: "Barter with a book React JS or similar",  Username: "Kary Girouard" },
-                { Image: Image6, Description: "Baby cart, black colour", Bartering_Condition: "Barter with a book React JS or similar",  Username: "Brain List" },
-                { Image: Image7, Description: "Book WAR AND PEACE  ", Bartering_Condition: "Barter with kitchenware set",  Username: "Carman Hsieh" },
-                { Image: Image8, Description: "Bycicle Moustache ", Bartering_Condition: "Barter with ray-ban sunglasses",  Username: "Meggan Valderrama" },
-                { Image: Image9, Description: "Printer SAMSUNG SGX", Bartering_Condition: "Barter with SAMSUNG GALAXY S10",  Username: "Lala Gloria" },
-                { Image: Image10, Description: "Motorcycle SUZUKI", Bartering_Condition: "Barter with AUDI CAR",  Username: "Eusebia Linda" }
+                const Data = [{ Image: Image1, Item_name: "Swatch watch model 91231",  Description: " Almost new Switzerland-made watch, water-proof, stainless steal", Bartering_Condition: "Barter with a similar item", Username: "Margarito Hux" },
+                { Image: Image2, Item_name:"SMART watch SAMSUNG"  ,Description: "Can be integrated with any smartphone, used, 3-month old ", Bartering_Condition: "Barter with a similar item with extra payment", Username: "Reynalda Cail" },
+                { Image: Image3, Item_name:"IPhone 5", Description: "Iphone 5 phone, white color, 8mg-camera, unlocked SIM ", Bartering_Condition: "Barter with SAMSUNG smartwatch",  Username: "Joette Gertz" },
+                { Image: Image4, Item_name:"Laptop ASUS S510UF ", Description: "Laptop ASUS S510UF, almost new, 16GB RAM, NVIDEA-Geforce 9000GT, 500GB Hard-drive ", Bartering_Condition: "Barter with a watch Rolex",  Username: "Alex Vittetoe" },
+                { Image: Image5, Item_name:"IKEA stool model 14AA43 ", Description: "Stool from IKEA, white color, new ", Bartering_Condition: "Barter with a book React JS or similar",  Username: "Kary Girouard" },
+                { Image: Image6, Item_name:"Baby cart ", Description: "Baby cart, black colour, used but in good shape", Bartering_Condition: "Barter with a book React JS or similar",  Username: "Brain List" },
+                { Image: Image7, Item_name:"Book War and Peace", Description: "Book WAR AND PEACE by Leo Tolstoy, in hard cover  ", Bartering_Condition: "Barter with kitchenware set",  Username: "Carman Hsieh" },
+                { Image: Image8, Item_name:"City Bicycle", Description: "Bicycle Moustache, a city bike, in excellent shape, used for 2month", Bartering_Condition: "Barter with ray-ban sunglasses",  Username: "Meggan Valderrama" },
+                { Image: Image9, Item_name:"Printer Samsung SG-3200", Description: "Cartridge-printer, 3-in-1 series with scanner", Bartering_Condition: "Barter with SAMSUNG GALAXY S10",  Username: "Lala Gloria" },
+                { Image: Image10, Item_name:"SUZUKI Motorcycle", Description: "Four stroke,SOHC, 4 valves", Bartering_Condition: "Barter with AUDI CAR",  Username: "Eusebia Linda" }
                 ];
 
                 let result = Data.map(function (item, index) {
-                        return (<BarterItem image={item.Image} description={item.Description} condition={item.Bartering_Condition} by={item.Username}/>
+                        return (<BarterItem image={item.Image} name={item.Item_name} description={item.Description} condition={item.Bartering_Condition} by={item.Username}/>
 
                         )
                 })
