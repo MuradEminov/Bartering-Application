@@ -17,7 +17,7 @@ class Home extends Component {
     showMyWishlist: false
   };
 
-  
+
   logout() {
     fire.auth().signOut();
   }
@@ -40,7 +40,7 @@ class Home extends Component {
             </div>
           </div>
           <div className={classes.Content}>
-            
+
             <Route path="/" exact component={BarterOffers} />
             <Route path="/my-items" exact component={MyItems} />
             {console.log(this.props)}

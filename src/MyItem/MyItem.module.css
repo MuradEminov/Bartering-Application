@@ -1,0 +1,11 @@
+.MyItem { 
+    min-height: 210px;
+    background-color: rgb(226, 230, 219);
+    margin: 5px 10px;
+    text-align: center; 
+    text-transform: capitalize;
+} 
+
+.MyItem h4 {
+  text-align: center;
+}
