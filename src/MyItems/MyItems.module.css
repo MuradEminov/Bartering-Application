@@ -98,18 +98,11 @@ overflow-x: hidden;
     padding-top: 5%;
 } 
 
-/* .MyItems__right__container__block{
+.MyItems__right__container__block{
     width: 100%; 
     min-height: 600px; 
-    background-color: rgb(194, 193, 219);
+    background-color: rgb(218, 213, 205);
     scroll-behavior: smooth;
     overflow: scroll;
-} */
-
-.MyItems__right__container__block__item{
-    min-height: 210px;
-    background-color: rgb(226, 230, 219);
-    margin: 5px 10px;
-    text-align: center; 
-    
 }
+

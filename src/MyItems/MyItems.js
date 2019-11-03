@@ -3,7 +3,8 @@ import Auxiliary from '../hoc/Auxiliary';
 import classes from '../MyItems/MyItems.module.css';
 import { storage } from '../Firebase/Fire';
 import MyItem from '../MyItem/MyItem';
-import axios from 'axios';
+import instance from '../axios-myItems';
+
 
 
 class MyItems extends Component {
@@ -52,14 +53,40 @@ class MyItems extends Component {
                 //complete function  
                 storage.ref(`images`).child(image.name).getDownloadURL().then((url) => {
                     console.log(url);
+                    alert("uploaded!");
                     this.setState({ url });
+                    // When uploadded image url is received, collect all item data into myNewItem object and post this record to Firebase Database
+
+                    const myNewItem = {
+                        Title: this.state.itemTitle,
+                        Description: this.state.itemDescription,
+                        URL: this.state.url,
+                        Condition: this.state.barteringCondition
+                    };
+
+
+                    instance.post('/myitems.json', myNewItem)
+                        .then(response => {
+                            if (response) {
+                                alert("success");
+                            }
+                        })
+                        .then(error => {
+                            console.log(error);
+                        })
+
+
                 })
 
             });
+
+
+
     }
 
     titleChangeHandler = event => {
         this.setState({ itemTitle: event.target.value });
+
     }
 
     descriptionChangeHandler = event => {
@@ -97,10 +124,7 @@ class MyItems extends Component {
                         <div className={classes.MyItems__right__container}>
                             <div className={classes.MyItems__right__container__header}><p>My items</p></div>
                             <div className={classes.MyItems__right__container__block}>
-                                {/* <div className={classes.MyItems__right__container__block__item}>sasa <br /> 
-                                            <img src={this.state.url || 'https://via.placeholder.com/140x100'}  height="100" width="140" />
-                                        </div>                                               */}
-                                <MyItem title={this.state.itemTitle} description={this.state.itemDescription} condition={this.state.barteringCondition} url={this.state.url} />
+                                {/* <MyItem title={this.state.itemTitle} description={this.state.itemDescription} condition={this.state.barteringCondition} url={this.state.url} /> */}
                             </div>
                         </div>
                     </div>
