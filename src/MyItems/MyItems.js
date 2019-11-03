@@ -4,6 +4,10 @@ import classes from '../MyItems/MyItems.module.css';
 import { storage } from '../Firebase/Fire';
 import MyItem from '../MyItem/MyItem';
 import instance from '../axios-myItems';
+import { database } from 'firebase';
+
+
+
 
 
 
@@ -12,19 +16,39 @@ class MyItems extends Component {
 
     constructor(props) {
         super(props);
+       
         const initial_state = {
             image: null,
             url: '',
             uploadStatus: false,
             itemTitle: '',
             itemDescription: '',
-            barteringCondition: ''
+            barteringCondition: '', 
+            addedItem: []
 
-        }
+        };
+
+        
         this.state = initial_state;
 
         this.handleChange = this.handleChange.bind(this);
         this.handleUpload = this.handleUpload.bind(this);
+    }
+
+
+    componentDidMount(){
+      
+        instance.get( 'https://bartering-application.firebaseio.com/myitems.json' )
+        .then( response => {
+            var obj = Object.values(response.data); 
+            console.log("parsed", obj);
+           this.setState({addedItem: obj});
+               
+            
+        } )
+        .catch( error => {
+           console.log(error);
+        } );
     }
 
     handleChange = e => {
@@ -66,11 +90,6 @@ class MyItems extends Component {
 
 
                     instance.post('/myitems.json', myNewItem)
-                        .then(response => {
-                            if (response) {
-                                alert("success");
-                            }
-                        })
                         .then(error => {
                             console.log(error);
                         })
@@ -94,6 +113,10 @@ class MyItems extends Component {
     }
 
     render() {
+
+        const items = this.state.addedItem.map(item => {
+            return  (<MyItem title={item.Title} description={item.Description} condition={item.Condition} url={item.URL} />);
+        })
 
         return (
             <Auxiliary>
@@ -125,6 +148,7 @@ class MyItems extends Component {
                             <div className={classes.MyItems__right__container__header}><p>My items</p></div>
                             <div className={classes.MyItems__right__container__block}>
                                 {/* <MyItem title={this.state.itemTitle} description={this.state.itemDescription} condition={this.state.barteringCondition} url={this.state.url} /> */}
+                                {items}
                             </div>
                         </div>
                     </div>
