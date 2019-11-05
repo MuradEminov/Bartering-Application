@@ -24,8 +24,9 @@ class MyItems extends Component {
             itemTitle: '',
             itemDescription: '',
             barteringCondition: '', 
-            addedItem: []
-
+            addedItem: [], 
+            
+            
         };
 
         
@@ -42,7 +43,7 @@ class MyItems extends Component {
         .then( response => {
             var obj = Object.values(response.data); 
             this.setState({addedItem: obj});
-               
+            
             
         } )
         .catch( error => {
@@ -69,7 +70,7 @@ class MyItems extends Component {
         const { image } = this.state;
         const uploadTask = storage.ref(`images/${image.name}`).put(image);
         uploadTask.on('state_changed', (snapshot) => {
-            // demonstrate the image upload progress
+            // demonstrate the image upload progress --not using
         },
             (error) => {
                 // error function 
@@ -113,7 +114,18 @@ class MyItems extends Component {
 
     descriptionChangeHandler = event => {
         this.setState({ itemDescription: event.target.value });
+    } 
+
+    handleRadioToggle = (event) =>{ 
+                 if(event.target.name === "with"){
+                        this.setState({input: this.state.input});  
+                 }   
+
+                          
     }
+
+
+
 
     render() {
 
@@ -131,15 +143,15 @@ class MyItems extends Component {
                                 <p style={{ padding: '0px', margin: '10px' }}>Title of the item:</p><input type="text" onChange={this.titleChangeHandler} maxLength='22'/>
                             </div>
                             <div className={classes.Items__Info}>
-                                <div className={classes.Items_Description}><p>Describe your item:</p><textarea rows="15" cols="30" onChange={this.descriptionChangeHandler} maxLength="120"></textarea></div>
+                                <div className={classes.Items_Description}><p>Describe your item:</p><textarea rows="15" cols="30" onChange={this.descriptionChangeHandler} maxLength="95"></textarea></div>
                                 <div className={classes.Items_Bartering__Condition}><p>Bartering condition:</p><br />
                                     <div className={classes.Items__Bartering_Condition_Options}>
                                         <fieldset id="barter-options">
-                                            <input type="radio" name="with-similar" />With a similar item <br />
-                                            <input type="radio" name="with-similar-with-extra" />With a similar item with extra payment <br />
-                                            <input type="radio" name="with" />With <input style={{ height: "11px", maxWidth: '240px' }} type="text" name="special-item" placeholder="e.g. Rolex Watch model 16233" /> <br />
-                                            <input type="radio" name="as-gift" />I give this item as gift! <br />
-                                            <input type="radio" name="as-gift" />I give this item as gift to<input style={{ height: "11px", maxWidth: '120px' }} type="text" placeholder="e.g. students" /> <br />
+                                            <input type="radio" name="with-similar" onChange={this.handleRadioToggle} value="With a similar item" />With a similar item <br />
+                                            <input type="radio" name="with-similar-with-extra" onChange={this.handleRadioToggle} value="With a similar item with extra payment" />With a similar item with extra payment <br />
+                                            <input type="radio" name="with" onChange={this.handleRadioToggle} />With <input style={{ height: "11px", maxWidth: '240px' }} type="text" name="special-item" placeholder="e.g. Rolex Watch model 16233" disabled={this.state.input} /> <br />
+                                            <input type="radio" name="as-gift" onChange={this.handleRadioToggle} value="I give this item as gift!" />I give this item as gift! <br />
+                                            <input type="radio" name="as-gift" onChange={this.handleRadioToggle} value="I give this item as gift to" />I give this item as gift to<input style={{ height: "11px", maxWidth: '120px' }} type="text" placeholder="e.g. students" /> <br />
                                         </fieldset>
                                         <div className={classes.Items_addButton}><button onClick={this.handleUpload}>+ADD</button></div>
                                     </div>

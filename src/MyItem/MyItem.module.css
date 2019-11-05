@@ -1,9 +1,11 @@
 .MyItem { 
     min-height: 210px;
+    min-width: 350px;
     background-color: rgb(194, 223, 240);
     margin: 5px 10px;
     text-align: center; 
     text-transform: capitalize;
+    margin:0;
 } 
 
 .MyItem h4 {
@@ -19,4 +21,15 @@
  .MyItem__descriptory__block{
    display: grid; 
    grid-template-rows: 120px 28px;
+ }
+
+ .deleteButton{
+   display: flex;
+ }
+ .deleteButton button{
+   justify-content: center;
+   align-items: center;
+   background-color: rgb(224, 41, 41);
+   border-radius: 90px;
+   color: white;
  }

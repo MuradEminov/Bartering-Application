@@ -2,7 +2,8 @@
  text-align: center;
  align-items: center;
  border: 2px solid rgb(165, 191, 221);
- 
+ min-width: 350x;
+ min-height: 450px;
 } 
 
 
@@ -74,3 +75,22 @@
    bottom: 0;
    margin: 0;
 }
+
+.description__text p{
+    max-width: 350px;
+    word-wrap: break-word;
+  }
+
+
+  
+  .deleteButton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .deleteButton button{
+    background-color: rgb(224, 41, 41);
+    border-radius: 90px;
+    color: white;
+    cursor:pointer;
+  }

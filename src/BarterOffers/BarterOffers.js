@@ -3,8 +3,7 @@ import Auxiliary from '../hoc/Auxiliary';
 import classes from './BarterOffers.module.css';
 import BarterItem from '../BarterItem/BarterItem';
 import instance from '../axios-myItems';
-
-
+import MyItem from '../MyItem/MyItem';
 
 //When back-end ready , we will receive items  data from the back-end. For now, we import few barter items images manually, then add out uploaded items 
 import Image1 from '../images/BarterOfferImages/img-1.jpg';
@@ -17,27 +16,27 @@ import Image7 from '../images/BarterOfferImages/img-7.jpg';
 import Image8 from '../images/BarterOfferImages/img-8.jpg';
 import Image9 from '../images/BarterOfferImages/img-9.jpg';
 import Image10 from '../images/BarterOfferImages/img-10.jpg';
-import MyItem from '../MyItem/MyItem';
 
 
 
-class BarterOffers extends Component { 
 
-      constructor(props){
-        super(props); 
-        this.state = {
-                myOwnItem: []
-        }
-      };
+class BarterOffers extends Component {
+
+        constructor(props) {
+                super(props);
+                this.state = {
+                        myOwnItem: []
+                }
+        };
 
         componentDidMount() {
 
                 instance.get('https://bartering-application.firebaseio.com/myitems.json')
                         .then(response => {
                                 var obj = Object.values(response.data);
-                                 this.setState({ myOwnItem: obj });
-                               
-                                 
+                                this.setState({ myOwnItem: obj });
+
+
 
                         })
                         .catch(error => {
@@ -45,14 +44,11 @@ class BarterOffers extends Component {
                         });
         }
 
-
-        render() { 
+        render() {
 
                 const myItems = this.state.myOwnItem.map(item => {
-                        return  (<MyItem url={item.URL} title={item.Title} description={item.description}/>);
-                    });
-
-
+                        return (<MyItem url={item.URL} title={item.Title} description={item.Description} condition={item.Condition} />);
+                });
 
                 //The array of objects with pseudo-data. This resembles the JSON which will be received from the back-end.
 
@@ -78,9 +74,9 @@ class BarterOffers extends Component {
                 return (<Auxiliary>
 
                         <div className={classes.BarterOffers__container}>
-                                {result} 
+                                {result}
                                 {myItems}
-                               
+
                         </div>
                 </Auxiliary>);
         }
