@@ -1,6 +1,6 @@
 .MyItem { 
     min-height: 210px;
-    background-color: rgb(226, 230, 219);
+    background-color: rgb(194, 223, 240);
     margin: 5px 10px;
     text-align: center; 
     text-transform: capitalize;
@@ -9,3 +9,14 @@
 .MyItem h4 {
   text-align: center;
 }
+
+.MyItem img {
+  margin-top: 1rem;
+  width: 240px;
+  height: 150px;
+ } 
+
+ .MyItem__descriptory__block{
+   display: grid; 
+   grid-template-rows: 120px 28px;
+ }

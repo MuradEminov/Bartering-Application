@@ -41,15 +41,17 @@ class MyItems extends Component {
         instance.get( 'https://bartering-application.firebaseio.com/myitems.json' )
         .then( response => {
             var obj = Object.values(response.data); 
-            console.log("parsed", obj);
-           this.setState({addedItem: obj});
+            this.setState({addedItem: obj});
                
             
         } )
         .catch( error => {
            console.log(error);
         } );
-    }
+    } 
+
+   
+  
 
     handleChange = e => {
         if (e.target.files[0]) {
@@ -90,6 +92,7 @@ class MyItems extends Component {
 
 
                     instance.post('/myitems.json', myNewItem)
+                        .then(response => {window.location.reload();} )
                         .then(error => {
                             console.log(error);
                         })
@@ -99,7 +102,7 @@ class MyItems extends Component {
 
             });
 
-
+            
 
     }
 
@@ -125,10 +128,10 @@ class MyItems extends Component {
                         <div className={classes.MyItems__left__container}>
                             <div className={classes.Items__Upload}> <p>Upload your barter item picture below:</p><br />
                                 <input type="file" onChange={this.handleChange} /><br />
-                                <p style={{ padding: '0px', margin: '10px' }}>Title of the item:</p><input type="text" onChange={this.titleChangeHandler} />
+                                <p style={{ padding: '0px', margin: '10px' }}>Title of the item:</p><input type="text" onChange={this.titleChangeHandler} maxLength='22'/>
                             </div>
                             <div className={classes.Items__Info}>
-                                <div className={classes.Items_Description}><p>Describe your item:</p><textarea rows="15" cols="30" onChange={this.descriptionChangeHandler} ></textarea></div>
+                                <div className={classes.Items_Description}><p>Describe your item:</p><textarea rows="15" cols="30" onChange={this.descriptionChangeHandler} maxLength="120"></textarea></div>
                                 <div className={classes.Items_Bartering__Condition}><p>Bartering condition:</p><br />
                                     <div className={classes.Items__Bartering_Condition_Options}>
                                         <fieldset id="barter-options">

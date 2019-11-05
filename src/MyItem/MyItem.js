@@ -1,19 +1,36 @@
 import React from 'react';
 import Auxiliary from '../hoc/Auxiliary';
 import { storage } from '../Firebase/Fire';
-import classes from '../MyItem/MyItem.module.css';
+import classes from '../BarterItem/BarterItem.module.css'; 
 
 
 
 const MyItem = (props) => {
-    return (<Auxiliary>
-        <div className={classes.MyItem}>
-            <h4>Item: {props.title}</h4>
-            <img src={props.url || 'https://via.placeholder.com/140x100'} height="100" width="140" />
-            <p>Description: {props.description}</p>
-            <p>Bartering condition: {props.condition}</p>
 
-        </div>
+
+
+    return (<Auxiliary>
+        
+
+
+<div className={classes.barterItem}>
+                <div>
+                 <img src={props.url || 'https://via.placeholder.com/140x100'} height="240" width="150" alt='my item' />
+                    <div className={classes.itemdescription__myItem}>
+                        <div className={classes.description__text}>
+                            <p style={{ textAlign: 'start' }}><span style={{ color: 'blue' }}>Item:</span> {props.title} </p>
+                            <p style={{ textAlign: 'start' }}><span style={{ color: 'blue' }}>Description:</span> {props.description} </p>
+                            <p style={{ textAlign: 'start' }}><span style={{ color: 'blue' }}>Bartering condition:</span> {props.condition}</p>
+                            <p style={{ textAlign: 'start' }}><span style={{ color: 'blue' }}>User:</span><span style={{color:'#33FF33'}}> You</span></p>
+                        </div>
+                        {/* <div className={classes.description__button}> <button>BARTER</button></div> */}
+                    </div>
+
+                </div>
+            </div>
+
+
+        
     </Auxiliary>);
 }
 
