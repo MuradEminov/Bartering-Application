@@ -72,8 +72,7 @@ class Login extends Component {
 
   }
 
-
-
+      // Login method  
   login(e) {
     e.preventDefault();
     this.validateSignIn();
@@ -86,7 +85,7 @@ class Login extends Component {
     });
 
   }
-
+      //Sign Up if validateSignUp is true method 
   signup(e) {
     e.preventDefault(e);
     this.validateSignUp();
@@ -100,7 +99,7 @@ class Login extends Component {
     }
 
   }
-
+            //Sign Up validation check method 
   validateSignUp = () => {
     let signUpEmailError = "";
     let signUpEmailRepeatError = "";
